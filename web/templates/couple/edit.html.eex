@@ -1,0 +1,6 @@
+<h2>Edit couple</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: couple_path(@conn, :update, @couple) %>
+
+<%= link "Back", to: couple_path(@conn, :index) %>

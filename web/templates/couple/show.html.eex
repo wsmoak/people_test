@@ -1,0 +1,18 @@
+<h2>Show couple</h2>
+
+<ul>
+
+  <li>
+    <strong>Partner1:</strong>
+    <%= @couple.partner1_id %>
+  </li>
+
+  <li>
+    <strong>Partner2:</strong>
+    <%= @couple.partner2_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: couple_path(@conn, :edit, @couple) %>
+<%= link "Back", to: couple_path(@conn, :index) %>

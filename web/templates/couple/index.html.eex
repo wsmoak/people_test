@@ -1,0 +1,28 @@
+<h2>Listing couples</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Partner1</th>
+      <th>Partner2</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for couple <- @couples do %>
+    <tr>
+      <td><%= couple.partner1_id %></td>
+      <td><%= couple.partner2_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: couple_path(@conn, :show, couple), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: couple_path(@conn, :edit, couple), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: couple_path(@conn, :delete, couple), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New couple", to: couple_path(@conn, :new) %>
