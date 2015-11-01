@@ -15,7 +15,8 @@ defmodule PeopleTest.Router do
 
   scope "/", PeopleTest do
     pipe_through :browser # Use the default browser stack
-
+ 
+    resources "/people", PersonController
     get "/", PageController, :index
   end
 
