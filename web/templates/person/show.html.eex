@@ -1,0 +1,18 @@
+<h2>Show person</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @person.name %>
+  </li>
+
+  <li>
+    <strong>Age:</strong>
+    <%= @person.age %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: person_path(@conn, :edit, @person) %>
+<%= link "Back", to: person_path(@conn, :index) %>
