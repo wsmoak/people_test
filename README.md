@@ -1,5 +1,8 @@
 # PeopleTest
 
+Example project to reproduce the problem discussed in
+https://groups.google.com/forum/#!topic/elixir-ecto/WritDu9He-s
+
 To start your Phoenix app:
 
   1. Install dependencies with `mix deps.get`
@@ -8,12 +11,11 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+To reproduce the issue:
 
-## Learn more
+  1. Visit http://localhost:4000/people
+  2. Add two people
+  3. Visit http://localhost:4000/couples
+  4. Enter the IDs (probably 1 and 2) and submit the form
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Result:  Error, but with no messages.  Check the log for the output of `IO.inspect`ing various things -- the changeset is invalid, but has no errors.
