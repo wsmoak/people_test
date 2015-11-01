@@ -11,6 +11,16 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :name, "Partner1", class: "control-label" %>
+    <%= text_input f, :partner1_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :name, "Partner2", class: "control-label" %>
+    <%= text_input f, :partner2_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
