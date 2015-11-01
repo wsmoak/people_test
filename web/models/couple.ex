@@ -2,8 +2,8 @@ defmodule PeopleTest.Couple do
   use PeopleTest.Web, :model
 
   schema "couples" do
-    belongs_to :partner1, PeopleTest.Partner1
-    belongs_to :partner2, PeopleTest.Partner2
+    belongs_to :partner1, PeopleTest.Person
+    belongs_to :partner2, PeopleTest.Person
 
     timestamps
   end
