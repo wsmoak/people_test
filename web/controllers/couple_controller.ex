@@ -2,6 +2,7 @@ defmodule PeopleTest.CoupleController do
   use PeopleTest.Web, :controller
 
   alias PeopleTest.Couple
+  alias PeopleTest.Person
 
   plug :scrub_params, "couple" when action in [:create, :update]
 
@@ -16,7 +17,17 @@ defmodule PeopleTest.CoupleController do
   end
 
   def create(conn, %{"couple" => couple_params}) do
-    changeset = Couple.changeset(%Couple{}, couple_params)
+    IO.write "In create, couple_params is:"
+    IO.inspect couple_params
+
+    person1 = Repo.get!(Person, couple_params["partner1_id"])
+    IO.inspect person1
+
+    person2 = Repo.get!(Person, couple_params["partner2_id"])
+    IO.inspect person2
+
+    changeset = Couple.changeset(%Couple{partner1: person1, partner2: person2})
+    IO.inspect changeset
 
     case Repo.insert(changeset) do
       {:ok, _couple} ->
